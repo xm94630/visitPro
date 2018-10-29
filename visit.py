@@ -13,14 +13,19 @@
 import time
 import random
 import re
+import sys
 from selenium import webdriver
 from fake_useragent import UserAgent
 
+# 从命令行获取代理ip
+proxyIp =  sys.argv[1]
+
 options = {
-    #'proxyServer':"125.70.13.77:8080",  #代理服务器 上海
+    #'proxyServer':"125.70.13.77:8080",  #代理服务器 成都
     #'proxyServer':"222.217.68.51:54355",  #代理服务器 柳州
-    'proxyServer':"60.191.201.38:45461",  #代理服务器
-    'myWeb':"http://www.jiaoda7.com",   #入口页面
+    #'proxyServer':"60.191.201.38:45461",  #代理服务器
+    'proxyServer':proxyIp,             #代理服务器
+    'myWeb':"http://www.jiaoda7.com",  #入口页面
     'reg':r".*jiaoda.*",               #要访问的子链接的关键词（正则）
     'ignoreReg':r".*jiaoda3.*",        #不要访问的子链接的关键词（正则） 因为，这个程序不能遇到有alert的，我的交大3就有一个...它就崩溃了，要排除
     'sonPageRange':[0,1],              #子页面访问数量可选范围
@@ -80,8 +85,8 @@ def run(options):
     
      # 访问入口页面
     visitTime = random.randint(timeRange[0],timeRange[1])
-    browser.get(myWeb)
     print '[main page]'+str(visitTime)+'s '+myWeb
+    browser.get(myWeb)
     time.sleep(visitTime)
 
     # 访问子页面
@@ -108,8 +113,9 @@ def run(options):
             #随机选择一个链接
             r = random.randint(0, len(linksArr)-1)
             sonLink = linksArr[r]
-            browser.get(sonLink)
             print '[son page]'+str(visitTime)+'s '+sonLink
+            browser.get(sonLink)
+            
             
 
         time.sleep(visitTime)
@@ -122,7 +128,7 @@ def run(options):
     # 递归访问子页面
     visitSonPage(sonPageN);
 
-    time.sleep(10)
+    time.sleep(100)
     print('页面关闭')
     browser.close();
     time.sleep(10)
