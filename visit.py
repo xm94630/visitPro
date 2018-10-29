@@ -16,10 +16,10 @@ import re
 from selenium import webdriver
 from fake_useragent import UserAgent
 
-
-
 options = {
-    'proxyServer':"125.70.13.77:8080",  #代理服务器
+    #'proxyServer':"125.70.13.77:8080",  #代理服务器 上海
+    #'proxyServer':"222.217.68.51:54355",  #代理服务器 柳州
+    'proxyServer':"60.191.201.38:45461",  #代理服务器
     'myWeb':"http://www.jiaoda7.com",   #入口页面
     'reg':r".*jiaoda.*",               #要访问的子链接的关键词（正则）
     'ignoreReg':r".*jiaoda3.*",        #不要访问的子链接的关键词（正则） 因为，这个程序不能遇到有alert的，我的交大3就有一个...它就崩溃了，要排除
