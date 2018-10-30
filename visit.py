@@ -60,7 +60,7 @@ def run(options):
 
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument('--user-agent="' + UserAgent().random + '"')
-    #chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--headless')
     chrome_options.add_argument('--disable-gpu')
     chrome_options.add_argument("--proxy-server=http://"+proxyServer)
     chrome_options.add_argument('--referer=https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=%E4%BA%A4%E5%A4%A7%E7%BE%A4%E4%BE%A0%E4%BC%A0&oq=%25E7%2599%25BE%25E5%25BA%25A6%25E4%25BA%25A4%25E5%25A4%25A7%25E7%25BE%25A4%25E4%25BE%25A0%25E4%25BC%25A0&rsv_pq=95213b240001aa52&rsv_t=33cb91U2x6b4xvu5RimAjU0ZSxGPli3rLJk%2BWZphe5QdE3oGishm1Yfheqs&rqlang=cn&rsv_enter=1&sug=selenium&inputT=370&rsv_sug3=79&rsv_sug1=77&rsv_sug7=100&rsv_sug2=0&rsv_sug4=612')

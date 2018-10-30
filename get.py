@@ -3,12 +3,15 @@
 import urllib2
 import re
 import time
+import random
 
+
+# 代理 如果自己的ip、被封了，就可以用代理（我自己电脑的上一个ip用了一次就不行了，好在是动态的ip隔一段时间就更新了）
 # 这个 urllib2 的代理，写法有点麻烦...
-proxies={"http":"60.191.201.38:45461"} 
-proxy_s = urllib2.ProxyHandler(proxies)
-opener = urllib2.build_opener(proxy_s)
-urllib2.install_opener(opener)
+# proxies={"http":"113.16.160.101:8118"} 
+# proxy_s = urllib2.ProxyHandler(proxies)
+# opener = urllib2.build_opener(proxy_s)
+# urllib2.install_opener(opener)
 
 headers = {
     'Accept': '*/*',
@@ -42,4 +45,6 @@ for i in range(1,1000):
         print ip
         f.write(ip)
 
-    time.sleep(2)       # 每爬取一页暂停两秒
+    #访问的时间间隔随机一点
+    n = random.randint(4,8)
+    time.sleep(n)       # 每爬取一页暂停两秒
