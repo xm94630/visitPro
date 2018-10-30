@@ -39,6 +39,7 @@ if proxyIp:
 
 else:
     print '【全体验证】'
+    total = 0;
     inf = open("ip1.txt")    
     lines = inf.readlines()
     proxys = []
@@ -56,7 +57,7 @@ else:
 
     for i in range(0,length):
         myIp = proxys[i]['http'][7:]
-        print '---------------------------------------------------------------------------------('+str(i)+'/'+str(length)+')';
+        print '---------------------------------------------------------------------------------('+str(i)+'/'+str(length)+') 已有可用:'+str(total);
         print myIp.strip() #xm:这个myIp后面有个空行，我把它去了
         try:
             res = urllib.urlopen(url,proxies=proxys[i])
@@ -69,6 +70,7 @@ else:
                     print "[xm]本ip可以使用"
                     print '--------------------------写入文件'
                     ouf.write(myIp)
+                    total += 1;
                 else:
                     print '[xm]搞笑吧！' 
             else:
