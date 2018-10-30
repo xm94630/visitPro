@@ -128,7 +128,7 @@ def run(options):
     # 递归访问子页面
     visitSonPage(sonPageN);
 
-    time.sleep(100)
+    time.sleep(1)
     print('页面关闭')
     browser.close();
     time.sleep(10)

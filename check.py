@@ -7,6 +7,7 @@ import re
 
 # 用这个网页去验证，遇到不可用ip会抛异常
 url = "http://httpbin.org/ip"
+#url = "http://www.jiaoda7.com"
 #xm:注意这个超时设置是这样子写的，单位是秒
 socket.setdefaulttimeout(3)
 # 从命令行获取代理ip
@@ -50,6 +51,7 @@ else:
 
     # 将可用ip写入ip2.txt
     ouf = open("ip2.txt", "a+")
+    ouf = open("ip2.txt", "r+")
 
     #神坑千万别那么写了！len是关键词
     #len = len(proxys)
