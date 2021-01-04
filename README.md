@@ -1,5 +1,5 @@
 ### 代理访问
-get.py               从代理网站抓取国内高匿ip，保存到ip1.txt
+get.py               从代理网站抓取国内高匿ip，保存到ip.txt(然后手动拷贝到ip1.txt)
 check.py [代理ip]     验证上一步中的ip,将有效的ip存放到ip2.txt，有参数为单独校验。
 visit.py [代理ip]     代理访问一次
 
